@@ -17,7 +17,21 @@ const Nav = () => (
     </div>
     <style jsx>{`
     #logo {
-      width: 200px;
+      height: 60px;
+    }
+    
+    nav {
+      position: fixed;
+      background: #fff;
+      width: 100vw;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-items: center;
+      align-content: center;
+      justify-content: center;
+      z-index: 1;
+    }
     `}</style>
   </nav>
 )
