@@ -182,7 +182,7 @@ class Home extends React.Component {
             <li>Or just to have a chat about what's possible...</li>
           </ul>
           <p>... then let's get in touch!</p>
-          <form name={`contact`} method={`POST`} data-netlify="true" onSubmit={`handle-submit`}>
+          <form name={`contact-2`} method={`POST`} data-netlify="true" onSubmit={this.handleSubmit}>
             <p id={`email-input-container`}><span id={`email-text`}>Your email:</span> <input type="text" name="email" placeholder={`you@example.com`} /></p>
             <textarea rows={5} name="message" placeholder={`Tell me a little bit about your business.
 Make sure to include links to your current site and social media pages if you have them.`} />
