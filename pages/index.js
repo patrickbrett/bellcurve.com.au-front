@@ -155,32 +155,12 @@ const Home = () => (
             <li>Or just to have a chat about what's possible...</li>
           </ul>
           <p>... then let's get in touch!</p>
-          <form name={`contact`} onSubmit={`event.preventDefault()`} netlify>
-            <p id={`email-input-container`}><span id={`email-text`}>Your email:</span> <input placeholder={`you@example.com`} /></p>
-            <textarea rows={5} placeholder={`Tell me a little bit about your business.
+          <form name={`contact`} method={`POST`} data-netlify="true">
+            <p id={`email-input-container`}><span id={`email-text`}>Your email:</span> <input type="text" name="email" placeholder={`you@example.com`} /></p>
+            <textarea rows={5} name="message" placeholder={`Tell me a little bit about your business.
 Make sure to include links to your current site and social media pages if you have them.`} />
             <button type={`submit`} className={`btn fifth`}>Let's go!</button>
             <p id={`follow-up`}>I'll follow up within a couple of business days with some more specific questions and we'll go from there.</p>
-          </form>
-          <form name="contact" method="POST" data-netlify="true">
-            <p>
-              <label>Your Name: <input type="text" name="name" /></label>
-            </p>
-            <p>
-              <label>Your Email: <input type="email" name="email" /></label>
-            </p>
-            <p>
-              <label>Your Role: <select name="role[]" multiple>
-                <option value="leader">Leader</option>
-                <option value="follower">Follower</option>
-              </select></label>
-            </p>
-            <p>
-              <label>Message: <textarea name="message"></textarea></label>
-            </p>
-            <p>
-              <button type="submit">Send</button>
-            </p>
           </form>
         </div>
       </section>
