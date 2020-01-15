@@ -7,6 +7,21 @@ const Home = () => (
     <Head>
       <title>Bellcurve | Get your small business where you want it to be.</title>
       <link rel="icon" href="/favicon.ico" />
+      {/*Global site tag (gtag.js) - Google Ads: 971348549*/}
+      <script async src="https://www.googletagmanager.com/gtag/js?id=AW-971348549"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'AW-971348549');
+      </script>
+
+      {/*Event snippet for Website lead conversion page*/}
+      <script>
+        gtag('event', 'conversion', {{'send_to': 'AW-971348549/5MGrCNS4lboBEMW0ls8D'}});
+      </script>
+
     </Head>
 
     <Nav />
