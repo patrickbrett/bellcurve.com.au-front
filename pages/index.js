@@ -2,8 +2,35 @@ import React from 'react'
 import Head from 'next/head'
 import Nav from '../components/nav'
 
-const Home = () => (
-  <div>
+const encode = (data) => {
+  return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+}
+
+class Home extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { email: "", message: "" };
+  }
+
+  handleSubmit = e => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...this.state })
+    })
+        .then(() => alert("Success!"))
+        .catch(error => alert(error));
+
+    e.preventDefault();
+  };
+
+  handleChange = e => this.setState({ [e.target.name]: e.target.value });
+
+  render() {
+  return (<div>
     <Head>
       <title>Bellcurve | Get your small business where you want it to be.</title>
       <link rel="icon" href="/favicon.ico" />
@@ -155,7 +182,7 @@ const Home = () => (
             <li>Or just to have a chat about what's possible...</li>
           </ul>
           <p>... then let's get in touch!</p>
-          <form name={`contact`} method={`POST`} data-netlify="true">
+          <form name={`contact`} method={`POST`} data-netlify="true" onSubmit={`handle-submit`}>
             <p id={`email-input-container`}><span id={`email-text`}>Your email:</span> <input type="text" name="email" placeholder={`you@example.com`} /></p>
             <textarea rows={5} name="message" placeholder={`Tell me a little bit about your business.
 Make sure to include links to your current site and social media pages if you have them.`} />
@@ -738,6 +765,6 @@ Make sure to include links to your current site and social media pages if you ha
 }
     `}</style>
   </div>
-)
+  })}
 
 export default Home

@@ -30,8 +30,8 @@ const Nav = () => (
       align-items: center;
       // justify-content: flex-start;
       justify-content: center;
-      z-index: 1;
       box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+      z-index: 2;
     }
     
     @media only screen and (max-width: 375px) {
