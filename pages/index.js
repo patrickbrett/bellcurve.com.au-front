@@ -88,22 +88,25 @@ const Home = () => (
       <h2>Case Studies</h2>
       <div id={`case-studies-row`}>
         <div className={`case-study`}>
-          <a href={`https://willstoneauthor.com`}>
-            <img src={`img/case-will-stone.jpg`} />
-            <div>Will Stone</div>
-          </a>
-        </div>
-        <div className={`case-study`}>
-          <a href={`https://swangosling.com`}>
+          <a href={`https://swangosling.com`} target={`_BLANK`} rel={`noopener`}>
             <img src={`img/case-swan-gosling.jpg`} />
             <div>Swan & Gosling</div>
           </a>
+          <div className={`description`}>Live music bar on the Mornington Peninsula.</div>
         </div>
         <div className={`case-study`}>
-          <a href={`https://microalgal.com.au`}>
+          <a href={`https://willstoneauthor.com`} target={`_BLANK`} rel={`noopener`}>
+            <img src={`img/case-will-stone.jpg`} />
+            <div>Will Stone</div>
+          </a>
+          <div className={`description`}>Melbourne-based fantasy author.</div>
+        </div>
+        <div className={`case-study`}>
+          <a href={`https://microalgal.com.au`} target={`_BLANK`} rel={`noopener`}>
             <img src={`img/case-microalgal.jpg`} />
             <div>Microalgal Services</div>
           </a>
+          <div className={`description`}>Environmental consultant in South-East Melbourne.</div>
         </div>
       </div>
     </section>
@@ -128,7 +131,7 @@ const Home = () => (
 
     <div id={`footer-container`}>
       <section id={`an-idea`}>
-        <div className={`inner-title`}>It all starts with you.</div>
+        <div className={`inner-title`}>It all starts with a quick message.</div>
         <div className={`inner-contact`}>
           If you're looking for:
           <ul>
@@ -183,9 +186,10 @@ Make sure to include links to your current site and social media pages if you ha
       #city-blur-container > div {
         font-family: "Mukta", sans-serif;
         color: #fff;
-        font-size: 72px;
+        font-size: 4em;
         width: 60%;
-        line-height: 80px;
+        min-width: 924px;
+        line-height: 1.5em;
       }
       
       .blue-container {
@@ -199,6 +203,7 @@ Make sure to include links to your current site and social media pages if you ha
       
       .blue-container > div {
         width: 60%;
+        min-width: 924px;
         margin: 0 auto;
         overflow: auto;
         display: flex;
@@ -250,7 +255,7 @@ Make sure to include links to your current site and social media pages if you ha
       #find-out-more {
         background: linear-gradient(45deg, #59C3D4, #245695);
         color: #fff;
-        padding: 120px 0;
+        padding: 80px 0;
       }
       
       #find-out-more-text {
@@ -265,6 +270,7 @@ Make sure to include links to your current site and social media pages if you ha
         justify-content: space-around;
         padding: 0;
         width: 60%;
+        min-width: 924px;
         margin: 0 auto;
       }
       
@@ -315,13 +321,21 @@ Make sure to include links to your current site and social media pages if you ha
       }
       
       .case-study img:hover {
-        transform: scale(2);
-        z-index: 50;
-        position: relative;
+        // transform: scale(2);
+        // z-index: 50;
+        // position: relative;
+      }
+        
+      .case-study div {
+        color: #000;
+      }
+      
+      .case-study div:hover, .case-study div:focus {
+        color: #444;
       }
       
       #an-idea {
-        background: url("img/desk.jpg"); /* TODO: optimise size */
+        background: url("img/desk.jpg");
         background-position: center;
         background-size: cover;
         width: 100vw;
@@ -340,6 +354,7 @@ Make sure to include links to your current site and social media pages if you ha
         color: #fff;
         font-size: 72px;
         line-height: 80px;
+        padding: 0 80px;
       }
       
       #an-idea > .inner-contact {
@@ -362,6 +377,7 @@ Make sure to include links to your current site and social media pages if you ha
         font-size: 14px;
         padding: 14px;
         resize: none;
+        border: 1px solid #aaa;
       }
       
       .inner-contact input:focus, .inner-contact textarea:focus {
@@ -441,9 +457,196 @@ Make sure to include links to your current site and social media pages if you ha
         }
       }
       
-      @media only screen and (max-width: 640px) {
-        #an-idea, #find-out-more-list {
+      @media only screen and (max-width: 1550px) {
+        #an-idea {
           flex-direction: column;
+          align-content: center;
+          justify-items: center;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        #an-idea > .inner-title {
+          font-size: 3em;
+          margin: 40px 0;
+        }
+        
+        #footer {
+          background: rgba(0, 0, 0, 0.5);
+          backdrop-filter: blur(10px);
+          left: 0;
+          bottom: 0;
+        }        
+        
+        #footer div {
+          margin: 0;
+          text-align: center;
+          width: 100%;
+          color: rgba(255, 255, 255, 0.6);
+          padding: 10px 0;
+        }
+      }
+      
+      @media only screen and (max-width: 1400px) {
+        #case-studies h2 {
+          margin: 40px 0;
+        }
+        
+        #case-studies-row {
+          flex-direction: column;
+        }
+        
+        .case-study {
+          width: 80vw;
+          margin: 40px 0;
+        }
+        
+        .case-study img {
+          width: 800px;
+          min-width: 60%;
+          height: auto;
+          border: 4px solid #444;
+        }
+        
+        .case-study .description {
+          font-style: italic;
+          color: #888;
+        }
+      }
+      
+      @media only screen and (max-width: 1024px) {
+      
+       #find-out-more-list {
+          // flex-direction: column;
+          align-content: center;
+          justify-items: center;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+      
+      @media only screen and (max-width: 1023px) {
+        .blue-container {
+          min-width: 100vw;
+          width: 100vw;
+        }
+        
+        .blue-container > .container-flex-left, .blue-container > .container-flex-right {
+          min-width: 0;
+          width: 80%;
+          flex-direction: column;
+        }
+        
+        .blue-container > .container-flex-right {
+          flex-direction: column-reverse;
+        }
+        
+        .overhang {
+          background: none;
+          border-radius: 0;
+          width: 100%;
+          padding: 0;
+        }
+        
+        .overhang-left img, .overhang-right img {
+          filter: invert(100%);
+          margin: 40px auto;
+        }
+        
+        .blue-container .text-left, .blue-container .text-right {
+          width: 100%;
+          text-align: justify;
+          padding: 0;
+        }
+        
+        #city-blur-container {
+          height: auto;
+          padding: 40px 20px;
+          min-width: 0;
+          width: calc(100vw - 40px);
+        }
+        
+        #city-blur-container > div {
+          font-size: 3em;
+          min-width: 80vw;
+        }
+        
+        #find-out-more {
+          padding: 40px 0;
+        }
+      }
+      
+      @media only screen and (max-width: 900px) {
+        #find-out-more-list {
+          min-width: 100%;
+          flex-direction: column;
+        }
+        
+        #find-out-more-list li { 
+          font-size: 18px;
+          border-radius: 0;
+          display: flex;
+          align-content: center;
+          justify-items: center;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        #find-out-more-list li > img {
+          // width: 40vw;
+        }
+        
+        #find-out-more-list li > div {
+          padding-left: 40px;
+          text-align: left;
+        }
+        
+        .case-study img {
+          width: 100%;
+        }
+        
+        #an-idea {
+          background: #fff;
+          box-shadow: none;
+          padding: 40px 0;
+          overflow: auto;
+          height: auto;
+          width: 100vw;
+        }
+        
+        #an-idea > .inner-title {
+          font-size: 2em;
+          color: #000;
+          padding: 0;
+        }
+        
+        #an-idea > .inner-contact {
+          box-shadow: none;
+          width: calc(100% - 80px);
+        }
+        
+        .inner-contact input {
+          width: auto;
+        }
+        
+      }
+      
+      @media only screen and (max-width: 375px) {
+        #an-idea {
+          min-width: 100%;
+        }
+        
+        #city-blur-container {
+          top: 60px;
+          margin-bottom: 60px;
+        }
+        
+        #city-blur-container > div {
+          font-size: 2em;
+        }
+        
+        #find-out-more-text {
+          margin-bottom: 20px;
         }
       }
       

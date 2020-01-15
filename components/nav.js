@@ -12,9 +12,9 @@ const links = [
 const Nav = () => (
   <nav>
     <img id={`logo`} src={`./logo.svg`} draggable={false} />
-    <div>
-      <button>Menu</button>
-    </div>
+    {/*<div>*/}
+    {/*  <button>Menu</button>*/}
+    {/*</div>*/}
     <style jsx>{`
     #logo {
       height: 60px;
@@ -23,14 +23,25 @@ const Nav = () => (
     nav {
       position: fixed;
       background: #fff;
-      width: 100vw;
+      width: calc(100vw - 40px);
+      padding: 0 20px;
       height: 100px;
       display: flex;
       align-items: center;
-      justify-items: center;
-      align-content: center;
+      // justify-content: flex-start;
       justify-content: center;
       z-index: 1;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    }
+    
+    @media only screen and (max-width: 375px) {
+      #logo {
+        height: 40px;
+      }
+      
+      nav {
+        height: 60px;
+      }
     }
     `}</style>
   </nav>
