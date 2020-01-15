@@ -21,7 +21,7 @@ class Home extends React.Component {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact-2", ...this.state })
     })
-        .then(() => alert("Success!"))
+        .then(() => alert(JSON.stringify(this.state)))
         .catch(error => alert(error));
 
     e.preventDefault();
@@ -30,6 +30,8 @@ class Home extends React.Component {
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   render() {
+    const { email, message } = this.state
+
   return (<div>
     <Head>
       <title>Bellcurve | Get your small business where you want it to be.</title>
