@@ -19,7 +19,7 @@ class Home extends React.Component {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...this.state })
+      body: encode({ "form-name": "contact-2", ...this.state })
     })
         .then(() => alert("Success!"))
         .catch(error => alert(error));
@@ -183,8 +183,8 @@ class Home extends React.Component {
           </ul>
           <p>... then let's get in touch!</p>
           <form name={`contact-2`} method={`POST`} data-netlify="true" onSubmit={this.handleSubmit}>
-            <p id={`email-input-container`}><span id={`email-text`}>Your email:</span> <input type="text" name="email" placeholder={`you@example.com`} /></p>
-            <textarea rows={5} name="message" placeholder={`Tell me a little bit about your business.
+            <p id={`email-input-container`}><span id={`email-text`}>Your email:</span> <input value={email} onChange={this.handleChange} type="text" name="email" placeholder={`you@example.com`} /></p>
+            <textarea rows={5} onChange={this.handleChange} name="message" value={message} placeholder={`Tell me a little bit about your business.
 Make sure to include links to your current site and social media pages if you have them.`} />
             <button type={`submit`} className={`btn fifth`}>Let's go!</button>
             <p id={`follow-up`}>I'll follow up within a couple of business days with some more specific questions and we'll go from there.</p>
