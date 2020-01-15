@@ -141,11 +141,11 @@ const Home = () => (
             <li>Or just to have a chat about what's possible...</li>
           </ul>
           <p>... then let's get in touch!</p>
-          <p>Your email: <input placeholder={`you@example.com`} /></p>
+          <p id={`email-input-container`}><span id={`email-text`}>Your email:</span> <input placeholder={`you@example.com`} /></p>
           <textarea rows={5} placeholder={`Tell me a little bit about your business.
 Make sure to include links to your current site and social media pages if you have them.`} />
-          <div>I'll follow up within a couple of business days with some more specific questions and we'll go from there.</div>
           <button className={`btn fifth`}>Let's go!</button>
+          <p id={`follow-up`}>I'll follow up within a couple of business days with some more specific questions and we'll go from there.</p>
         </div>
       </section>
 
@@ -338,21 +338,21 @@ Make sure to include links to your current site and social media pages if you ha
         background: url("img/desk.jpg");
         background-position: center;
         background-size: cover;
-        width: 100vw;
+        width: 90vw;
         height: 400px;
         display: flex;
         text-align: center;
         // justify-content: center;
         justify-content: space-evenly;
         align-items: center;
-        padding: 300px 0;
+        padding: 300px 5vw;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.3) inset;
       }
       
       #an-idea > .inner-title {
         font-family: "Mukta", sans-serif;
         color: #fff;
-        font-size: 72px;
+        font-size: 4em;
         line-height: 80px;
         padding: 0 80px;
       }
@@ -362,6 +362,10 @@ Make sure to include links to your current site and social media pages if you ha
         padding: 40px;
         text-align: left;
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+      }
+      
+      #follow-up {
+        text-align: justify;
       }
       
       .inner-contact input {
@@ -468,7 +472,15 @@ Make sure to include links to your current site and social media pages if you ha
         
         #an-idea > .inner-title {
           font-size: 3em;
+          line-height: 1.5em;
           margin: 40px 0;
+        }
+        
+        #email-input-container {
+          margin: 40px 0 20px;
+        }
+        
+        #email-text {
         }
         
         #footer {
@@ -622,7 +634,8 @@ Make sure to include links to your current site and social media pages if you ha
         
         #an-idea > .inner-contact {
           box-shadow: none;
-          width: calc(100% - 80px);
+          padding: 0 20px;
+          width: calc(100% - 40px);
         }
         
         .inner-contact input {

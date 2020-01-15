@@ -11,7 +11,7 @@ const links = [
 
 const Nav = () => (
   <nav>
-    <img id={`logo`} src={`./logo.svg`} draggable={false} />
+    <img id={`logo`} src={`img/logo.png`} draggable={false} />
     {/*<div>*/}
     {/*  <button>Menu</button>*/}
     {/*</div>*/}
