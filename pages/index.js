@@ -48,39 +48,63 @@ const Home = () => (
       </div>
     </div>
 
-    <section>
-      <div>Get in touch for a free quote - I don't bite!</div>
-      <div>So, what do you do? ...</div>
-      <textarea />
-      <button>Send an enquiry</button> or keep scrolling to see what my clients have to say...
-    </section>
+    {/*<section id={}>*/}
+    {/*  <div>Get in touch for a free quote - I don't bite!</div>*/}
+    {/*  <div>So, what do you do? ...</div>*/}
+    {/*  <textarea />*/}
+    {/*  <button>Send an enquiry</button> or keep scrolling to see what my clients have to say...*/}
+    {/*</section>*/}
 
-    <section id={`testimonials`}>
-      <div className={`testimonial`}>
-        <p>"Patrick went above and beyond with our picture frame business. The site is beautiful and functional, and with Bellcurve's assistance we've tripled our marketing reach on the same budget."</p>
-        <p>- Kim Lay, Bentleigh Art 'n' Frame</p> {/* TODO: her last name might actually be Heng, better check */}
-        <p>See the case study &raquo;</p>
-      </div>
+    {/*<section id={`testimonials`}>*/}
+    {/*  <div className={`testimonial`}>*/}
+    {/*    <p>"Patrick went above and beyond with our picture frame business. The site is beautiful and functional, and with Bellcurve's assistance we've tripled our marketing reach on the same budget."</p>*/}
+    {/*    <p>- Kim Lay, Bentleigh Art 'n' Frame</p> /!* TODO: her last name might actually be Heng, better check *!/*/}
+    {/*    <p>See the case study &raquo;</p>*/}
+    {/*  </div>*/}
 
-      <div className={`testimonial`}>
-        <p>
-          "We came to Bellcurve with a very specific problem that no one we had talked to had been able to solve,
-          and Patrick listened carefully before coming up with the perfect solution.
-          I’d recommend his services to any small business looking for creative solutions
-          to their technical and business problems."
-        </p>
-        <p>- Andrew Rogers, Noise Consulting</p>
-        <p>See the case study &raquo;</p>
-      </div>
+    {/*  <div className={`testimonial`}>*/}
+    {/*    <p>*/}
+    {/*      "We came to Bellcurve with a very specific problem that no one we had talked to had been able to solve,*/}
+    {/*      and Patrick listened carefully before coming up with the perfect solution.*/}
+    {/*      I’d recommend his services to any small business looking for creative solutions*/}
+    {/*      to their technical and business problems."*/}
+    {/*    </p>*/}
+    {/*    <p>- Andrew Rogers, Noise Consulting</p>*/}
+    {/*    <p>See the case study &raquo;</p>*/}
+    {/*  </div>*/}
 
-      <div className={`testimonial`}>
-        <p>"I used to have a very plain homepage set up for my art business, as well as a small Instagram account.
-          Patrick showed me what a professional site could look like,
-          set me up with a beautiful custom design that perfectly fit what I was trying to express,
-          and now I have more students lining up for my art lessons than I can handle!"
-        </p>
-        <p>- Gayle Stone, artist</p>
-        <p>See the case study &raquo;</p>
+    {/*  <div className={`testimonial`}>*/}
+    {/*    <p>"I used to have a very plain homepage set up for my art business, as well as a small Instagram account.*/}
+    {/*      Patrick showed me what a professional site could look like,*/}
+    {/*      set me up with a beautiful custom design that perfectly fit what I was trying to express,*/}
+    {/*      and now I have more students lining up for my art lessons than I can handle!"*/}
+    {/*    </p>*/}
+    {/*    <p>- Gayle Stone, artist</p>*/}
+    {/*    <p>See the case study &raquo;</p>*/}
+    {/*  </div>*/}
+    {/*</section>*/}
+
+    <section id={`case-studies`}>
+      <h2>Case Studies</h2>
+      <div id={`case-studies-row`}>
+        <div className={`case-study`}>
+          <a href={`https://willstoneauthor.com`}>
+            <img src={`img/case-will-stone.jpg`} />
+            <div>Will Stone</div>
+          </a>
+        </div>
+        <div className={`case-study`}>
+          <a href={`https://swangosling.com`}>
+            <img src={`img/case-swan-gosling.jpg`} />
+            <div>Swan & Gosling</div>
+          </a>
+        </div>
+        <div className={`case-study`}>
+          <a href={`https://microalgal.com.au`}>
+            <img src={`img/case-microalgal.jpg`} />
+            <div>Microalgal Services</div>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -104,20 +128,21 @@ const Home = () => (
 
     <div id={`footer-container`}>
       <section id={`an-idea`}>
-        <div className={`inner-title`}>It all starts with an idea.</div>
+        <div className={`inner-title`}>It all starts with you.</div>
         <div className={`inner-contact`}>
           If you're looking for:
           <ul>
-            <li>a clean, professional online presence that puts your brand's best foot forward</li>
-            <li>hi-tech solutions without the technical jargon</li>
-            <li>a Melbourne-based Aussie you can meet with in person when needed</li>
-            <li>or just to have a chat about what's possible...</li>
+            <li>A clean, professional online presence that puts your brand's best foot forward</li>
+            <li>Hi-tech solutions without the technical jargon</li>
+            <li>A Melbourne-based Aussie you can meet with in person when needed</li>
+            <li>Or just to have a chat about what's possible...</li>
           </ul>
           <p>... then let's get in touch!</p>
-          <p>Your email: <input /></p>
-          <textarea rows={5} placeholder={`Tell me a little bit about what you do. Make sure to include links to your current site and social media pages if you have them.`} />
-          <button>Submit</button>
-          <div>I'll follow up within a couple of business days and we'll go from there.</div>
+          <p>Your email: <input placeholder={`you@example.com`} /></p>
+          <textarea rows={5} placeholder={`Tell me a little bit about your business.
+Make sure to include links to your current site and social media pages if you have them.`} />
+          <div>I'll follow up within a couple of business days with some more specific questions and we'll go from there.</div>
+          <button className={`btn fifth`}>Let's go!</button>
         </div>
       </section>
 
@@ -159,7 +184,7 @@ const Home = () => (
         font-family: "Mukta", sans-serif;
         color: #fff;
         font-size: 72px;
-        width: 70%;
+        width: 60%;
         line-height: 80px;
       }
       
@@ -168,12 +193,13 @@ const Home = () => (
         width: 100vw;
         overflow: auto;
         color: #fff;
-        font-size: 24px;
+        font-size: 16px;
         padding: 50px 0;
       }
       
       .blue-container > div {
-        width: 100%;
+        width: 60%;
+        margin: 0 auto;
         overflow: auto;
         display: flex;
         justify-content: space-between;
@@ -206,15 +232,13 @@ const Home = () => (
       
       .overhang-left {
         float: left;
-        border-top-right-radius: 40px;
-        border-bottom-right-radius: 40px;
+        border-radius: 40px;
         clear: left;
       }
       
       .overhang-right {
         float: right;
-        border-top-left-radius: 40px;
-        border-bottom-left-radius: 40px;
+        border-radius: 40px;
         clear: right;
       }
       
@@ -239,6 +263,9 @@ const Home = () => (
       #find-out-more-list {
         display: flex;
         justify-content: space-around;
+        padding: 0;
+        width: 60%;
+        margin: 0 auto;
       }
       
       #find-out-more-list li {
@@ -252,6 +279,7 @@ const Home = () => (
         padding: 40px;
         transition: background 0.3s;
         border-radius: 20px;
+        width: 300px;
       }
       
       #find-out-more-list li:hover {
@@ -262,6 +290,34 @@ const Home = () => (
       
       .icon-med {
         height: 100px;
+      }
+      
+      #case-studies h2 {
+        text-align: center;
+        margin: 80px 0;
+      }
+      
+      #case-studies-row {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 40px;
+      }
+      
+      .case-study {
+        text-align: center;
+      }
+      
+      .case-study img {
+        height: 250px;
+        clear: both;
+        transition: 1s transform;
+      }
+      
+      .case-study img:hover {
+        transform: scale(2);
+        z-index: 50;
+        position: relative;
       }
       
       #an-idea {
@@ -276,6 +332,7 @@ const Home = () => (
         justify-content: space-evenly;
         align-items: center;
         padding: 300px 0;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3) inset;
       }
       
       #an-idea > .inner-title {
@@ -286,14 +343,35 @@ const Home = () => (
       }
       
       #an-idea > .inner-contact {
-        background: rgba(255, 255, 255, 0.9);
+        background: #fff;
         padding: 40px;
         text-align: left;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+      }
+      
+      .inner-contact input {
+        width: 300px;
+        padding: 10px 20px;
+        margin-left: 10px;
+        font-size: 14px;
+        border: 1px solid #aaa;
       }
       
       .inner-contact textarea {
-        width: 100%;
+        width: calc(100% - 28px);
         font-size: 14px;
+        padding: 14px;
+        resize: none;
+      }
+      
+      .inner-contact input:focus, .inner-contact textarea:focus {
+        outline: none;
+        border: 1px solid #444;
+      }
+      
+      .inner-contact button {
+        background: #fff;
+        font-size: 18px;
       }
       
       #footer-container {
@@ -368,6 +446,64 @@ const Home = () => (
           flex-direction: column;
         }
       }
+      
+      
+.btn {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  border: 2px solid #e74c3c;
+  border-radius: 0.6em;
+  color: #e74c3c;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  font-weight: 400;
+  line-height: 1;
+  margin: 20px 0;
+  padding: 1.2em 1.8em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+.btn:hover, .btn:focus {
+  color: #fff;
+  outline: 0;
+}
+
+.fifth {
+  border-color: #2f66ae;
+  border-radius: 0;
+  color: #2f66ae;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 150ms ease-in-out;
+}
+.fifth:after {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 0;
+  height: 100%;
+  background: #2f66ae;
+  z-index: -1;
+  transition: width 150ms ease-in-out;
+}
+.fifth:hover {
+  color: #fff;
+}
+.fifth:hover:after {
+  width: 110%;
+}
     `}</style>
   </div>
 )
