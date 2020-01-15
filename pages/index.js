@@ -765,6 +765,6 @@ Make sure to include links to your current site and social media pages if you ha
 }
     `}</style>
   </div>
-  })}
+  )}}
 
 export default Home
