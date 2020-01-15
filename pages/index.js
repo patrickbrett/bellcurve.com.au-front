@@ -166,7 +166,7 @@ Make sure to include links to your current site and social media pages if you ha
       }
       
       #city-blur-container {
-        background: url("city-blur.png"); /* TODO: optimise size */
+        background: url("img/city-blur.jpg"); /* TODO: optimise size */
         background-position: center;
         background-size: cover;
         width: 100vw;
@@ -321,7 +321,7 @@ Make sure to include links to your current site and social media pages if you ha
       }
       
       #an-idea {
-        background: url("desk.jpg"); /* TODO: optimise size */
+        background: url("img/desk.jpg"); /* TODO: optimise size */
         background-position: center;
         background-size: cover;
         width: 100vw;
