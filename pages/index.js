@@ -21,7 +21,9 @@ class Home extends React.Component {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact-2", ...this.state })
     })
-        .then(() => alert(JSON.stringify(this.state)))
+        .then(() => {
+          this.setState({ didSubmit: true })
+        })
         .catch(error => alert(error));
 
     e.preventDefault();
@@ -30,7 +32,7 @@ class Home extends React.Component {
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   render() {
-    const { email, message } = this.state
+    const { email, message, didSubmit } = this.state
 
   return (<div>
     <Head>
@@ -175,22 +177,26 @@ class Home extends React.Component {
     <div id={`footer-container`}>
       <section id={`an-idea`}>
         <div className={`inner-title`}>It all starts with a quick message.</div>
-        <div className={`inner-contact`}>
+        <div className={`inner-contact ${didSubmit ? `did-submit` : ``}`}>
           If you're looking for:
           <ul>
-            <li>A clean, professional online presence that puts your brand's best foot forward</li>
-            <li>Hi-tech solutions without the technical jargon</li>
-            <li>A Melbourne-based Aussie you can meet with in person when needed</li>
-            <li>Or just to have a chat about what's possible...</li>
+          <li>A clean, professional online presence that puts your brand's best foot forward</li>
+          <li>Hi-tech solutions without the technical jargon</li>
+          <li>A Melbourne-based Aussie you can meet with in person when needed</li>
+          <li>Or just to have a chat about what's possible...</li>
           </ul>
           <p>... then let's get in touch!</p>
-          <form name={`contact-2`} method={`POST`} data-netlify="true" onSubmit={this.handleSubmit}>
-            <p id={`email-input-container`}><span id={`email-text`}>Your email:</span> <input value={email} onChange={this.handleChange} type="text" name="email" placeholder={`you@example.com`} /></p>
-            <textarea rows={5} onChange={this.handleChange} name="message" value={message} placeholder={`Tell me a little bit about your business.
+          <div id={`before-submit`}>
+            <form name={`contact-2`} method={`POST`} data-netlify="true" onSubmit={this.handleSubmit}>
+              <p id={`email-input-container`}><span id={`email-text`}>Your email:</span> <input value={email} onChange={this.handleChange} type="text" name="email" placeholder={`you@example.com`} /></p>
+              <textarea rows={5} onChange={this.handleChange} name="message" value={message} placeholder={`Tell me a little bit about your business.
+
 Make sure to include links to your current site and social media pages if you have them.`} />
-            <button type={`submit`} className={`btn fifth`}>Let's go!</button>
-            <p id={`follow-up`}>I'll follow up within a couple of business days with some more specific questions and we'll go from there.</p>
-          </form>
+              <button type={`submit`} className={`btn fifth`}>Let's go!</button>
+              <p id={`follow-up`}>I'll follow up within a couple of business days with some more specific questions and we'll go from there.</p>
+            </form>
+            <div id={`thank-you`}>Thank you for your message. I'll be in touch shortly.</div>
+          </div>
         </div>
       </section>
 
@@ -451,6 +457,38 @@ Make sure to include links to your current site and social media pages if you ha
         left: 20px;
         font-size: 14px;
         color: rgba(255, 255, 255, 0.3);
+      }
+      
+      #thank-you {
+        visibility: hidden;
+      }
+      
+      .did-submit #thank-you {
+        visibility: visible;
+        opacity: 0;
+        animation: fade-in 1s forwards;
+        position: absolute;
+        text-align: center;
+        top: 50%;
+        width: 100%;
+      }
+      
+      @keyframes fade-in {
+        0% {
+          opacity: 0;
+        }
+        
+        100% {
+          opacity: 1;
+        }
+      }
+      
+      .did-submit #before-submit {
+        position: relative;
+      }
+      
+      .did-submit #before-submit form {
+        visibility: hidden;
       }
       
       @media only screen and (min-width: 1920px) {
