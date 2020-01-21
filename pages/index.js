@@ -36,7 +36,7 @@ class Home extends React.Component {
 
   return (<div>
     <Head>
-      <title>Bellcurve | Get your small business where you want it to be.</title>
+      <title>Bellcurve | Get your small business where you want it.</title>
       <link rel="icon" href="/favicon.ico" />
       {/*Global site tag (gtag.js) - Google Ads: 971348549*/}
       {/*<script async src="https://www.googletagmanager.com/gtag/js?id=AW-971348549"></script>*/}
@@ -57,7 +57,7 @@ class Home extends React.Component {
     <Nav />
 
     <div id={`city-blur-container`}>
-      <div>Get your small business where you want it to be.</div>
+      <div>Get your small business where you want it.</div>
     </div>
 
     <div className={`blue-container`}>
@@ -130,7 +130,7 @@ class Home extends React.Component {
     {/*</section>*/}
 
     <section id={`case-studies`}>
-      <h2>Case Studies</h2>
+      <h2>Showcase</h2>
       <div id={`case-studies-row`}>
         <div className={`case-study`}>
           <a href={`https://swangosling.com`} target={`_BLANK`} rel={`noopener`}>
@@ -368,13 +368,15 @@ Make sure to include links to your current site and social media pages if you ha
       .case-study img {
         height: 250px;
         clear: both;
-        transition: 1s transform;
+        transition: 0.4s opacity, 0.4s transform;
+        border: 4px solid #444;
       }
       
       .case-study img:hover {
-        // transform: scale(2);
-        // z-index: 50;
-        // position: relative;
+        opacity: 0.6;
+        transform: scale(1.1);
+        z-index: 50;
+        position: relative;
       }
         
       .case-study div {
@@ -600,7 +602,6 @@ Make sure to include links to your current site and social media pages if you ha
           width: 800px;
           min-width: 60%;
           height: auto;
-          border: 4px solid #444;
         }
         
         .case-study .description {
