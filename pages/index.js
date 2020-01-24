@@ -12,7 +12,7 @@ class Home extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { email: "", message: "" };
+    this.state = { email: "", message: "", moreInfoSelection: "web" };
   }
 
   handleSubmit = e => {
@@ -31,8 +31,99 @@ class Home extends React.Component {
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
+  getMoreInfo = name => {
+    this.setState(prevState => ({ moreInfoSelection: name }))
+  }
+
   render() {
-    const { email, message, didSubmit } = this.state
+    const { email, message, didSubmit, moreInfoSelection } = this.state
+
+    let moreInfo;
+    switch (moreInfoSelection) {
+      case "web": {
+        moreInfo = (
+          <>
+            <h2>Custom Websites</h2>
+            <img className={`service-img`} src={`img/service-custom-websites.jpg`} />
+          <p>Let's face it: as we enter the 2020s, an online presence is necessary for even small, brick-and-mortar businesses.</p>
+          <p>
+              A good website showcases the best of your business, allowing your customers to find out more about you,
+              discover content that highlights your subject matter expertise, and even interact with your business in innovative ways.
+              Done well, a website is like a 24/7 salesperson, only much cheaper!
+            </p>
+            <p>
+              On the other hand, a poorly designed website tells your customers that you don't care - about your business, the details, and them.
+            </p>
+            <p>When it comes to getting online, there are three main options:</p>
+            <ol>
+              <li>Use a do-it-yourself editor, spend weeks trying to understand how everything works, and end up with a sub-par, cookie-cutter site that lacks uniqueness and professionalism...</li>
+              <li>Shell out for a large agency likely to overcharge and treat you as a just another customer...</li>
+              <li>Or work with a trusted, local professional who can not only manage everything for you at a reasonable price, but will consult with you to understand exactly what your business goals are and how to take the steps needed to achieve them.</li>
+            </ol>
+            <p>Of course, I naturally have a strong bias towards the last one!</p>
+            <p>I have experience developing sites and web applications for a wide variety of clients:
+              from a simple locate-and-contact-us site for a local consultancy, to a complex real-time data visualisation application
+              for a $30 million technology company, and just about everything in between. Shoot me a message with the form below to see what I can do for you.</p>
+          </>
+        )
+        break;
+      }
+      case "marketing": {
+        moreInfo = (
+            <>
+              <h2>Digital Marketing</h2>
+              <img className={`service-img`} src={`img/service-digital-marketing.jpg`} />
+              <p>Many see digital marketing as nothing more than putting a few ads on Google and Facebook and hoping for the best. This couldn't be further from the truth!</p>
+              <p>Digital marketing involves everything about the online journey your customers take: from the search they make, the social media post they see or the article they read, to the in-store visit, online sale or continuing customer relationship.</p>
+              <p>A good marketing strategy answers the following questions:</p>
+              <ul>
+                <li>How do my customers currently find me? How do I want them to find me? Are there avenues I can explore that I haven't tried yet? What are the costs and benefits of these?</li>
+                <li>How does my online presence, including my website, social media pages and search listings, contribute to my sales? How does this compare to brick-and-mortar methods?</li>
+                <li>Do I have a well-designed sales funnel in place on my website? Is it clear what I want customers to do?</li>
+                <li>How can I work with the data available to me to optimise leads and conversions?</li>
+              </ul>
+              <p>A great thing about these online methods is they are suitable for businesses of almost any size -
+                from local family owned pizza businesses to international retail empires. While renting a billboard only becomes a feasible strategy once your company
+                is past a certain size, online marketing budgets can be wildly variable - anywhere from a few dozen dollars per month up to many millions for larger companies.</p>
+              <p>The unfortunate truth, however, is that often it is only larger businesses that know how to use digital marketing to their advantage, and to enjoy the benefits these platforms bring.
+                This is why I also provide digital marketing services for many of my clients, including setting up and managing social media pages, social and search advertising campaigns, and more. This has a beautiful synergy with website design, as so much of online marketing comes down to the design of the pages your leads land on.</p>
+              <p>Get in touch with me to discuss how digital marketing can benefit your business - or, if you already have some strategies in place, I can analyse what we can do to improve conversions, optimise your sales funnel, and even explore new strategies.</p>
+            </>
+        )
+        break;
+      }
+      case "apps": {
+        moreInfo = (
+            <>
+              <h2>Mobile Apps</h2>
+              <img className={`service-img`} src={`img/service-mobile-apps.jpg`} />
+            <p>I’m very much a believer of “more is less”: keeping it simple creates better conversions, clearer branding,
+              and higher customer satisfaction. Of course, I also work with businesses with a wide variety of needs, and mobile apps
+              are something that come up on occasion. As I have experience in this area, it is a service I offer if I believe it could be beneficial.</p>
+
+              <p>I’ll keep it straight: most small businesses don’t need a mobile app.
+              A web presence is often enough, and the web is getting better and better at handling complex tasks that used to need apps,
+              such as uploading photos, and even websites that work offline.</p>
+
+              <p>There are, however, some situations in which a mobile app for your business may make sense.
+                An example would be having an in-store loyalty program that matches an online one:
+                in this case there are some benefits only apps can bring, such as being able to send notifications
+                directly to your customers’ phones. Many larger businesses, especially food retailers, have apps that do this.</p>
+
+              <p>Another would be a system for employees to manage inventory,
+                clock in and out, or accomplish other business-specific tasks if existing solutions don’t meet your needs.
+                Of course, if there is a pre-built system out there that I believe would work for you, I will recommend that first!
+              </p>
+
+              <p>I have a wide variety of experience building both iOS and Android apps, with apps on both the App Store and Google Play.
+              Get in touch for a free, no-obligation discussion of what this or my other services can do for you and your business.</p>
+            </>
+        )
+        break;
+      }
+      default: {
+      }
+    }
 
   return (<div>
     <Head>
@@ -93,42 +184,6 @@ class Home extends React.Component {
       </div>
     </div>
 
-    {/*<section id={}>*/}
-    {/*  <div>Get in touch for a free quote - I don't bite!</div>*/}
-    {/*  <div>So, what do you do? ...</div>*/}
-    {/*  <textarea />*/}
-    {/*  <button>Send an enquiry</button> or keep scrolling to see what my clients have to say...*/}
-    {/*</section>*/}
-
-    {/*<section id={`testimonials`}>*/}
-    {/*  <div className={`testimonial`}>*/}
-    {/*    <p>"Patrick went above and beyond with our picture frame business. The site is beautiful and functional, and with Bellcurve's assistance we've tripled our marketing reach on the same budget."</p>*/}
-    {/*    <p>- Kim Lay, Bentleigh Art 'n' Frame</p> /!* TODO: her last name might actually be Heng, better check *!/*/}
-    {/*    <p>See the case study &raquo;</p>*/}
-    {/*  </div>*/}
-
-    {/*  <div className={`testimonial`}>*/}
-    {/*    <p>*/}
-    {/*      "We came to Bellcurve with a very specific problem that no one we had talked to had been able to solve,*/}
-    {/*      and Patrick listened carefully before coming up with the perfect solution.*/}
-    {/*      I’d recommend his services to any small business looking for creative solutions*/}
-    {/*      to their technical and business problems."*/}
-    {/*    </p>*/}
-    {/*    <p>- Andrew Rogers, Noise Consulting</p>*/}
-    {/*    <p>See the case study &raquo;</p>*/}
-    {/*  </div>*/}
-
-    {/*  <div className={`testimonial`}>*/}
-    {/*    <p>"I used to have a very plain homepage set up for my art business, as well as a small Instagram account.*/}
-    {/*      Patrick showed me what a professional site could look like,*/}
-    {/*      set me up with a beautiful custom design that perfectly fit what I was trying to express,*/}
-    {/*      and now I have more students lining up for my art lessons than I can handle!"*/}
-    {/*    </p>*/}
-    {/*    <p>- Gayle Stone, artist</p>*/}
-    {/*    <p>See the case study &raquo;</p>*/}
-    {/*  </div>*/}
-    {/*</section>*/}
-
     <section id={`case-studies`}>
       <h2>Showcase</h2>
       <div id={`case-studies-row`}>
@@ -159,19 +214,27 @@ class Home extends React.Component {
     <section id={`find-out-more`}>
       <div id={`find-out-more-text`}>Find out more about...</div>
       <ul id={`find-out-more-list`}>
-        <li>
+        <li onClick={() => this.getMoreInfo("web")} className={moreInfoSelection === 'web' ? 'selected' : ''}>
           <img src={`laptop.svg`} className={`icon-med`} id={`icon-laptop`} draggable={false} />
           <div>Custom Websites</div>
         </li>
-        <li>
-          <img src={`marketing.svg`} className={`icon-med`} id={`icon-marketing`} draggable={false} />
+        <li onClick={() => this.getMoreInfo("marketing")} className={moreInfoSelection === 'marketing' ? 'selected' : ''}>
+          <img src={`marketing.svg`} className={`icon-med`} id={`icon-marketing`} draggable={false} onClick={() => this.getMoreInfo("marketing")} />
           <div>Digital Marketing</div>
         </li>
-        <li>
-          <img src={`phone.svg`} className={`icon-med`} id={`icon-phone`} draggable={false} />
+        <li onClick={() => this.getMoreInfo("apps")} className={moreInfoSelection === 'apps' ? 'selected' : ''}>
+          <img src={`phone.svg`} className={`icon-med`} id={`icon-phone`} draggable={false} onClick={() => this.getMoreInfo("apps")} />
           <div>Mobile Apps</div>
         </li>
       </ul>
+    </section>
+
+    <section id={`more-info`}>
+      <div id={`more-info-inner`} className={moreInfoSelection ? "" : "hidden"}>
+        <div>
+          {moreInfo}
+        </div>
+      </div>
     </section>
 
     <div id={`footer-container`}>
@@ -209,6 +272,10 @@ Make sure to include links to your current site and social media pages if you ha
       html, body {
         margin: 0;
         padding: 0;
+      }
+      
+      .service-img {
+        width: 100%;
       }
     `}</style>
 
@@ -333,16 +400,41 @@ Make sure to include links to your current site and social media pages if you ha
         font-size: 28px;
         text-align: center;
         display: block;
-        padding: 40px;
+        padding: 20px;
         transition: background 0.3s;
         border-radius: 20px;
         width: 300px;
+        margin: 0 20px;
       }
       
       #find-out-more-list li:hover {
-        background: rgba(0, 0, 0, 0.2);
+        background: rgba(0, 0, 0, 0.1);
         cursor: pointer;
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1) inset;
+      }
+      
+      #find-out-more-list li.selected {
+        cursor: default;
+        background: rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1) inset;
+      }
+      
+      #find-out-more-list li.selected:after {
+        content: "";
+        position: absolute;
+        color: #000;
+        bottom: 0;
+        background: #fff;
+        width: 120px;
+        height: 60px;
+        transform: translateX(-60px);
+        
+        clip-path: polygon(
+          0 100%,
+          50% 0,
+          100% 100%,
+          0 100%
+        );
       }
       
       .icon-med {
@@ -375,7 +467,7 @@ Make sure to include links to your current site and social media pages if you ha
       .case-study img:hover {
         opacity: 0.6;
         transform: scale(1.1);
-        z-index: 50;
+        z-index: 1;
         position: relative;
       }
         
@@ -491,6 +583,13 @@ Make sure to include links to your current site and social media pages if you ha
       
       .did-submit #before-submit form {
         visibility: hidden;
+      }
+      
+      #more-info-inner {
+        width: calc(30vw + 400px);
+        min-width: 400px;
+        text-align: justify;
+        margin: 80px auto;
       }
       
       @media only screen and (min-width: 1920px) {
@@ -688,6 +787,10 @@ Make sure to include links to your current site and social media pages if you ha
           justify-content: center;
         }
         
+        #find-out-more-list li.selected:after {
+          visibility: hidden;
+        }
+        
         #find-out-more-list li > img {
           // width: 40vw;
         }
@@ -724,6 +827,10 @@ Make sure to include links to your current site and social media pages if you ha
         
         .inner-contact input {
           width: auto;
+        }
+        
+        #more-info-inner {
+          width: 80vw;
         }
         
       }
@@ -803,6 +910,58 @@ Make sure to include links to your current site and social media pages if you ha
 }
 .fifth:hover:after {
   width: 110%;
+}
+
+
+// #city-blur-container {
+// padding-bottom: 6vw;
+// clip-path: polygon(
+//     0 0,
+//     100% 0,
+//     100% 100%,
+//     0 calc(100% - 6vw)
+//   );
+// }
+
+.blue-container {
+// padding-top: 10vw;
+padding-bottom: 10vw;
+position: relative;
+// top: -6vw;
+clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 6vw),
+    0 100%
+  );
+}
+
+#case-studies {
+  position: relative;
+  top: -6vw;
+  padding-top: 6vw;
+  padding-bottom: 6vw;
+  clip-path: polygon(
+    0 6vw,
+    100% 0,
+    100% calc(100% - 6vw),
+    0 100%
+  );
+  
+  box-shadow: 0 0 20px 20px rgba(0, 0, 0, 1);
+}
+
+#find-out-more {
+  position: relative;
+  top: -6vw;
+  padding-top: 12vw;
+  clip-path: polygon(
+    0 6vw,
+    100% 0,
+    100% 100%,
+    0 100%
+  );
+  margin-bottom: -6vw;
 }
     `}</style>
   </div>
