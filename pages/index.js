@@ -588,6 +588,7 @@ Make sure to include links to your current site and social media pages if you ha
       #more-info-inner {
         width: calc(30vw + 400px);
         min-width: 400px;
+        max-width: 1800px;
         text-align: justify;
         margin: 80px auto;
       }
@@ -831,6 +832,7 @@ Make sure to include links to your current site and social media pages if you ha
         
         #more-info-inner {
           width: 80vw;
+          min-width: 300px;
         }
         
       }
