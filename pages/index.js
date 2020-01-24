@@ -36,7 +36,7 @@ class Home extends React.Component {
 
   return (<div>
     <Head>
-      <title>Bellcurve | Get your small business where you want it.</title>
+      <title>Bellcurve | High-touch digital solutions for your small business</title>
       <link rel="icon" href="/favicon.ico" />
       {/*Global site tag (gtag.js) - Google Ads: 971348549*/}
       {/*<script async src="https://www.googletagmanager.com/gtag/js?id=AW-971348549"></script>*/}
@@ -57,14 +57,14 @@ class Home extends React.Component {
     <Nav />
 
     <div id={`city-blur-container`}>
-      <div>Get your small business where you want it.</div>
+      <div>High-touch digital solutions for your small business.</div>
     </div>
 
     <div className={`blue-container`}>
       <div className={`container-flex-right`}>
         <section className={`text-left`}>
           <p>
-            Bellcurve is a one-man design, development and marketing agency
+            Bellcurve is a one-man web design, development and marketing agency
             founded by Patrick Brett and based out of Melbourne.
           </p>
           <p>
