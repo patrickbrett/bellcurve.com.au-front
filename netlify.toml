@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/*"
+  to = "https://www.linkedin.com/in/patrickbrett1/"
+  status = 301
+  force = true
